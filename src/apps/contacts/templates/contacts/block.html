@@ -1,0 +1,11 @@
+{% load i18n %}
+
+<div class="contact-block block">
+  <div class="grid-block">
+    {% if block.header %}
+      <div class="title-h1">{{ block.header }}</div>
+    {% endif %}
+
+    <button class="btn open-contact-popup">{% trans 'Contact us' %}</button>
+  </div>
+</div>

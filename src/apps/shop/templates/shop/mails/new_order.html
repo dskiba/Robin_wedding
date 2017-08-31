@@ -1,0 +1,43 @@
+{% load i18n %}
+
+<p>
+  {% blocktrans %}New order at the <a href="http://{{ domain }}/" target="_blank">{{ domain }}</a>{% endblocktrans %}
+</p>
+
+<table border="1" cellpadding="10" cellspacing="0">
+  <thead>
+    <tr bgcolor="#EAEAEA">
+      <th>{% trans 'Item' %}</th>
+      <th>{% trans 'Item Price' %}</th>
+      <th>{% trans 'Quantity' %}</th>
+      <th>{% trans 'Total Price' %}</th>
+    </tr>
+  </thead>
+
+  {% for record in order.records.all() %}
+    <tr>
+      <td>{{ record.product.title }}</td>
+      <td>{{ record.order_price.alternative }}</td>
+      <td>{{ record.count }}</td>
+      <td>{{ record.total_cost.alternative }}</td>
+    </tr>
+  {% endfor %}
+
+  <tfoot>
+    <tr>
+      <td colspan="3" align="right" bgcolor="#EAEAEA">{% trans 'Products price' %}</td>
+      <th>{{ order.products_cost.alternative }}</th>
+    </tr>
+
+    <tr>
+      <td colspan="3" align="right" bgcolor="#EAEAEA"><b>{% trans 'Total' %}</b></td>
+      <th><h3>{{ order.total_cost.alternative }}</h3></th>
+    </tr>
+  </tfoot>
+</table>
+
+<p>
+  <a href="http://{{ domain }}{% url 'admin:shop_shoporder_change' order.pk %}" target="_blank">
+    {% trans 'See details' %}
+  </a>
+</p>

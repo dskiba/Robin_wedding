@@ -1,0 +1,75 @@
+@import "mixins";
+
+// размер кликабельной области точек
+$area_size: 16px;
+
+// расстояние между областями
+$area_gap: (
+    ($media480, 0): 4px,
+    (0, $media480): 0,
+);
+
+// размер точек
+$dot_size: (
+    ($media480, 0): 10px,
+    (0, $media480): 8px,
+);
+
+// цвета
+$dot_color: rgba($white, 0.3);
+$dot_hover_color: rgba($white, 0.6);
+$dot_active_color: rgba($white, 1);
+
+
+.slider-navigation {
+  position: absolute;
+  padding: 14px 30px 10px;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  z-index: 9;
+  text-align: center;
+  @include border-box;
+  @include no_fontsize;
+  @include valign_after;
+  @include unselectable;
+
+  .slider-navigation-item {
+    display: inline-block;
+    width: $area_size;
+    height: $area_size;
+    text-align: center;
+    cursor: pointer;
+    @include valign_after;
+    @include media_map(margin-right, $area_gap);
+    &:nth-last-of-type(1) {
+      margin-right: 0;
+    }
+
+    // dot
+    span {
+      display: inline-block;
+      vertical-align: middle;
+      background-color: $dot_color;
+      @include border-box;
+      @include border_radius(50%);
+      @include transition-property(background);
+      @include transition-duration(0.3s);
+      @include media_map((width, height), $dot_size);
+    }
+
+    &:hover {
+      span {
+        background-color: $dot_hover_color;
+      }
+    }
+
+    &.active {
+      cursor: default;
+
+      span {
+        background-color: $dot_active_color;
+      }
+    }
+  }
+}

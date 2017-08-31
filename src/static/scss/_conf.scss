@@ -1,0 +1,67 @@
+//=======================
+// Точки для media-queries
+//=======================
+$media1200: 1200px;
+$media1024: 1024px;
+$media900: 900px;
+$media768: 768px;
+$media640: 640px;
+$media600: 600px;
+$media480: 480px;
+$media400: 400px;
+
+//=======================
+// Сетка
+//=======================
+$cols_wide: 8;
+$cols_desktop: 8;
+$cols_tablet: 8;
+$cols_mobile: 4;
+
+// Максимальная ширина сетки
+$grid_max_width: 1400px;
+
+// Боковые границы каждого столбца
+$grid_column_gap: 14px;
+
+// Боковые границы сетки
+$grid_paddings: (
+    ($media1200, 0): 60px,
+    ($media1024, $media1200): 40px,
+    ($media768, $media1024): 28px,
+    ($media640, $media768): 16px,
+    (0, $media640): 6px,
+);
+
+// Боковые границы сетки с прибавлением границы столбца
+$grid_full_paddings: ();
+@each $key, $value in $grid_paddings {
+  $grid_full_paddings: map-merge($grid_full_paddings, (
+    $key: $value + $grid_column_gap
+  ))
+}
+
+//=======================
+// Sprite
+//=======================
+$sprite_url: url(/static/img/sprite.svg);
+$sprite_width: 282px;
+$sprite_height: 107px;
+
+//=======================
+// Цвета
+//=======================
+$white: #FFFFFF;
+$text_color: #2C3035;
+
+//=======================
+// Меню
+//=======================
+$menu_burger_color: #82BD36;
+$menu_burger_width: 28px;
+$menu_burger_line_height: 4px;
+$menu_burger_line_space: 5px;
+
+// интервал показа мобильного меню
+$media_mobile: $media768;
+

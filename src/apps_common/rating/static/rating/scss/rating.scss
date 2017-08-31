@@ -1,0 +1,66 @@
+@import "mixins";
+
+@mixin voted_style() {
+  @include opacity(1);
+}
+
+@mixin unvoted_style() {
+  @include opacity(0.2);
+}
+
+
+.rating {
+  @include no_fontsize;
+
+  .stars {
+    display: inline-block;
+    white-space: nowrap;
+    vertical-align: middle;
+
+    &:hover {
+      li {
+        @include voted_style;
+      }
+    }
+
+    li:hover ~ li {
+      @include unvoted_style;
+    }
+
+    @for $index from 1 through 5 {
+      &.voted-#{$index} {
+        & > li {
+          @include unvoted_style;
+        }
+
+        & > li:nth-last-child(n+#{5 - $index + 1}) {
+          @include voted_style;
+        }
+      }
+    }
+  }
+
+  li {
+    display: inline-block;
+    padding: 0 1px;
+    width: 16px;
+    cursor: pointer;
+    vertical-align: middle;
+    @include unvoted_style;
+
+    &:first-child {
+      padding-left: 0;
+    }
+    &:last-child {
+      padding-right: 0;
+    }
+
+    &:before {
+      content: '';
+      display: block;
+      padding-top: 100%;
+      background: $sprite_url no-repeat rel-background-position(20px, 20px, -556px, -270px);
+      background-size: rel-background-size(20px, 20px);
+    }
+  }
+}

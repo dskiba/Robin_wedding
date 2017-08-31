@@ -1,0 +1,35 @@
+{% extends 'layout.html' %}
+
+{% load pipeline_plus %}
+{% load text %}
+
+{% block static_head %}
+  {{ block.super }}
+  {% stylesheet 'shop_detail' %}
+{% endblock static_head %}
+
+{% block static_js %}
+  {{ block.super }}
+  {% javascript 'shop_detail' %}
+{% endblock static_js %}
+
+
+{% block content %}
+
+  <div class="block grid-block">
+    <h1 class="title-h1">{{ product.title }}</h1>
+
+    <img src="{{ product.photo.normal.url }}" alt="{{ product.title }}" class="photo"
+         width="{{ product.photo.normal.target_width }}"
+         height="{{ product.photo.normal.target_height }}">
+
+    <div class="price">{% trans 'Price' %}: {{ product.price }}</div>
+
+    <button type="button" class="btn add-to-cart-btn" data-product="{{ product.pk }}">{% trans 'Add to cart' %}</button>
+
+    <div class="text text-styles">
+      {{ product.description|safe }}
+    </div>
+  </div>
+
+{% endblock content %}

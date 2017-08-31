@@ -1,0 +1,60 @@
+{% extends 'layout.html' %}
+
+{% load pipeline_plus %}
+{% load share_buttons %}
+{% load away %}
+{% load text %}
+
+{% block static_head %}
+  {{ block.super }}
+  {% stylesheet 'blog_detail' %}
+{% endblock static_head %}
+
+{% block static_js %}
+  {{ block.super }}
+  {% javascript 'blog_detail' %}
+{% endblock static_js %}
+
+
+{% block content %}
+
+  <div id="blog-post" class="block" itemscope itemtype="http://schema.org/Article">
+    <meta itemprop="dateModified" content="{{ post.updated|date:"c" }}"/>
+    <link itemprop="mainEntityOfPage" href="{{ post.get_absolute_url }}"/>
+    <!-- <link itemprop="author" href="#MyOrg"/>
+    <link itemprop="publisher" href="#MyOrg"/> -->
+
+    {% if post.preview %}
+      <link itemprop="image" href="{{ post.preview.normal.url }}"/>
+    {% endif %}
+
+    <div class="grid">
+      <div class="gc-wide-6 gc-6 gc-center">
+        <time datetime="{{ post.date|date:"c" }}" class="date" itemprop="datePublished">
+          {{ post.date|date }}
+        </time>
+
+        <h1 class="title title-h1" itemprop="headline">{{ post.header }}</h1>
+
+        {% if post.preview %}
+          <img class="preview" src="{{ post.preview.normal.url }}"
+               srcset="{{ post.preview.normal.srcset }}, {{ post.preview.mobile.srcset }}"
+               sizes="100vw">
+        {% endif %}
+
+        <div class="text text-styles" itemprop="articleBody">
+          {% away post.text|typograf %}
+        </div>
+
+        <div class="social-buttons no-counter">
+          {% share_button 'fb' %}
+          {% share_button 'tw' %}
+          {% share_button 'gp' %}
+          {% share_button 'li' %}
+          {% share_button 'pn' %}
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock content %}

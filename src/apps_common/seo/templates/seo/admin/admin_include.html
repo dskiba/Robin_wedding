@@ -1,0 +1,8 @@
+{% load i18n %}
+
+{{ seoDataForm.media }}
+
+<div class="alert alert-info">{% trans 'Attention! Errors in SEO form will not prevent saving of main form' %}</div>
+{% for fieldset in seoDataForm %}
+  {% include 'admin/includes/fieldset.html' %}
+{% endfor %}

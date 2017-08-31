@@ -1,0 +1,26 @@
+@import 'mixins';
+
+#content {
+  vertical-align: middle;
+}
+
+#error {
+  text-align: center;
+
+  .block-name {
+    color: #FF0000;
+    @include font-size(165px, 165px);
+    @include media_interval($media480, $media1024) {
+      @include font-size(140px);
+    }
+    @include media_interval(0, $media480) {
+      @include font-size(120px);
+    }
+  }
+
+  .text {
+    width: 360px;
+    max-width: 100%;
+    margin: 20px auto 0;
+  }
+}

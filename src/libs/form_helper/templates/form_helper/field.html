@@ -1,0 +1,19 @@
+<div class="field {{ field_classes }} {% block add_classes %}{% endblock add_classes %}">
+  {% block field %}
+    <div class="label-holder">
+      <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+    </div>
+
+    <div class="control">
+      {{ field }}
+    </div>
+  {% endblock field %}
+
+  {% block errors %}
+    {% if field_errors %}
+      <div class="error">
+        <span>{{ field_errors|first }}</span>
+      </div>
+    {% endif %}
+  {% endblock %}
+</div>

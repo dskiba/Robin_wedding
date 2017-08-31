@@ -1,0 +1,64 @@
+@import 'mixins';
+
+// точка перехода к вертикальному подвалу
+$column_footer: $media640;
+
+
+#footer-cell > footer {
+  color: $white;
+  background-color: #404040;
+  @include vpad(40px);
+
+  .flex {
+    @include flexbox;
+    @include align-items(center);
+    @include media_interval(0, $column_footer) {
+      @include align-items(stretch);
+      @include flex-direction(column);
+    }
+  }
+
+  .copyright-box {
+    @include flex(1 1 auto);
+
+    .copyright {
+      @include fontsize_default;
+      @include media_interval(0, $column_footer) {
+        margin-bottom: 16px;
+        text-align: center;
+      }
+    }
+  }
+
+  .dl-logo-box {
+    @include flex(0 0 auto);
+
+    .dl-links {
+      text-align: right;
+      @include media_interval(0, $column_footer) {
+        text-align: center;
+      }
+
+      p {
+        display: inline-block;
+        margin-bottom: 10px;
+        text-align: left;
+        white-space: nowrap;
+        @include font-size(14px, 22px);
+        @include media_interval(0, $column_footer) {
+          text-align: center;
+        }
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+
+      a:hover {
+        @include opacity(0.7);
+      }
+    }
+  }
+}
+
+

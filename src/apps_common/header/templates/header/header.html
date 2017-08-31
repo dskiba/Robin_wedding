@@ -1,0 +1,42 @@
+{% load placeholder %}
+{% load menu %}
+
+<header>
+  <div class="grid-block">
+
+    <div class="flex">
+      <div class="logo-box">
+        <h1 class="logo-title">Celebrant Robin</h1>
+        <span class="logo-subtitle">WEDDING OFFCIANT</span>
+      </div>
+
+      <div class="menu-box">
+        <div id="mobile-menu-button">
+          <div class="burger"></div>
+        </div>
+
+        <nav class="menu main-menu">
+          {% menu 'main' %}
+        </nav>
+
+        <div class="menu mobile-menu">
+          {% placeholder "menu" menu_name='main' referer=request.path_info %}
+        </div>
+
+        <div class="social-links">
+          <a href="#" class="twitter"></a>
+          <a href="#" class="inst"></a>
+          <a href="#" class="facebook"></a>
+          <a href="#" class="linkedin"></a>
+          <a href="#" class="googleplus"></a>
+      </div>
+      </div>
+
+      <div class="contacts-tel text-styles">
+      <a href="tel:267-481-0605">267-481-0605</a>
+      </div>
+
+    </div>
+
+  </div>
+</header>

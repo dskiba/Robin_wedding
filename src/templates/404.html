@@ -1,0 +1,29 @@
+{% extends 'layout.html' %}
+
+{% load pipeline_plus %}
+{% load i18n %}
+
+{% block static_head %}
+  {{ block.super }}
+  {% stylesheet 'error' %}
+{% endblock static_head %}
+
+
+{% block title %}{% trans 'Page not found' %}{% endblock %}
+
+{% block content %}
+
+  <div id="error" class="grid-block block">
+    <div class="block-name title-h1">{% block code %}404{% endblock code %}</div>
+    <div class="text text-styles">
+      {% block text %}
+        {% blocktrans %}
+          The page you are looking for no longer exists.<br>
+          Perhaps you can return back to the site’s <a href="/">homepage</a> and see if you can find what you are
+          looking for.
+        {% endblocktrans %}
+      {% endblock text %}
+    </div>
+  </div>
+
+{% endblock content %}

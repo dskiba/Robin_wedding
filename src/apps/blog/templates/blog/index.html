@@ -1,0 +1,93 @@
+{% extends 'layout.html' %}
+
+{% load pipeline_plus %}
+{% load paginator %}
+{% load text %}
+{% load i18n %}
+
+{% block static_head %}
+  {{ block.super }}
+  {% stylesheet 'blog' %}
+{% endblock static_head %}
+
+{% block static_js %}
+  {{ block.super }}
+  {% javascript 'blog' %}
+{% endblock static_js %}
+
+
+{% block content %}
+
+  <div id="blog" class="block">
+    <div class="grid-block">
+      <h1 class="title-h1">{{ config.header }}</h1>
+
+      {% if tags %}
+        <ul id="tags">
+          <li class="tag {% if not current_tag %}active{% endif %}">
+            <a href="{% url 'blog:index' %}">{% trans 'All' %}</a>
+          </li>
+
+          {% for tag in tags %}
+            <li class="tag {% if current_tag.pk == tag.pk %}active{% endif %}">
+              <a href="{{ tag.get_absolute_url }}">{{ tag.title }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    </div>
+
+    <div id="posts">
+      {% for post in paginator.current_page %}
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+          <meta itemprop="dateModified" content="{{ post.updated|date:"c" }}"/>
+          <link itemprop="mainEntityOfPage" href="{{ post.get_absolute_url }}"/>
+          <!-- <link itemprop="author" href="#MyOrg"/>
+          <link itemprop="publisher" href="#MyOrg"/> -->
+
+          <div class="grid-block">
+            <header>
+              <time datetime="{{ post.date|date:"c" }}" class="date" itemprop="datePublished">
+                {{ post.date|date:"jS E Y" }}
+              </time>
+
+              <h2 class="title title-h1">
+                <a href="{{ post.get_absolute_url }}">
+                  <span itemprop="headline">{{ post.header }}</span>
+                </a>
+              </h2>
+            </header>
+
+            {% if post.preview %}
+              <a href="{{ post.get_absolute_url }}" class="preview" itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
+                <img srcset="{{ post.preview.normal.srcset }}, {{ post.preview.mobile.srcset }}"
+                     src="{{ post.preview.normal.url }}" sizes="100vw" itemprop="url"
+                     width="{{ post.preview.normal.target_width }}"
+                     height="{{ post.preview.normal.target_height }}">
+                <meta itemprop="width" content="{{ post.preview.normal.target_width }}"/>
+                <meta itemprop="height" content="{{ post.preview.normal.target_height }}"/>
+              </a>
+            {% endif %}
+
+            {% if post.note %}
+              <div class="note text-styles" itemprop="articleBody">
+                {{ post.note|clean }}
+              </div>
+            {% endif %}
+          </div>
+        </article>
+      {% endfor %}
+    </div>
+
+    {% if paginator.num_pages > 1 %}
+      <div id="paginator">
+        <div class="grid-block">
+          {% paginator paginator %}
+        </div>
+      </div>
+    {% endif %}
+  </div>
+  
+  {% render_attached_blocks config %}
+
+{% endblock content %}

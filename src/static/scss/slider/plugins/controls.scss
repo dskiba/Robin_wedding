@@ -1,0 +1,60 @@
+@import "mixins";
+
+// ширина области нажатия
+$arrow_area_width: (
+    ($media768, 0px): 80px,
+    ($media480, $media768): 60px,
+    (0px, $media480): 50px,
+);
+
+// параметры стрелки
+$arrow_width: 2px;
+$arrow_color: #D0D0D0;
+$arrow_size: 20px;
+
+
+.slider-arrow {
+  position: absolute;
+  overflow: hidden;
+  top: 0;
+  height: 100%;
+  z-index: 10;
+  cursor: pointer;
+  @include unselectable;
+  @include media_map(width, $arrow_area_width);
+
+  span {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 100%;
+    padding-top: 100%;
+    @include transform(translate(-50%, -50%));
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      border-top: $arrow_width solid $arrow_color;
+      border-right: $arrow_width solid $arrow_color;
+      @include border-box;
+      @include media_map(width, $arrow_size);
+      @include media_map(height, $arrow_size);
+      @include transform(translate(-75%, -50%) rotate(45deg));
+    }
+  }
+
+  &.slider-arrow-left {
+    left: 0;
+    @include transform(scaleX(-1));
+  }
+
+  &.slider-arrow-right {
+    right: 0;
+  }
+
+  &.slider-arrow-disabled {
+    display: none;
+  }
+}

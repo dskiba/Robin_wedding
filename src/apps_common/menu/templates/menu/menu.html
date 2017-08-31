@@ -1,0 +1,13 @@
+<ul {% if level == 1 %}itemscope itemtype="http://schema.org/SiteNavigationElement"{% endif %}>
+  {% for item in items %}
+    <li class="{% if item.is_active %}active{% endif %}">
+      <a href="{{ item.url }}" class="{{ item.classes }}" {{ item.attrs }} itemprop="url">
+        <span>{{ item.title }}</span>
+      </a>
+
+      {% if item.childs %}
+        {% include 'menu/menu.html' with items=item.childs level=level|add:1 %}
+      {% endif %}
+    </li>
+  {% endfor %}
+</ul>

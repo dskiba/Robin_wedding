@@ -1,0 +1,27 @@
+{% extends 'layout.html' %}
+
+{% load pipeline_plus %}
+
+
+{% block static_head %}
+  {{ block.super }}
+  {% stylesheet 'shop_category' %}
+{% endblock static_head %}
+
+{% block static_js %}
+  {{ block.super }}
+  {% javascript 'shop_category' %}
+{% endblock static_js %}
+
+
+{% block content %}
+
+  <div class="block grid-block">
+    <h1 class="title-h1">{{ category.title }}</h1>
+
+    {% include 'shop/category_list.html' with categories=root_categories, current_category=category %}
+
+    {% include 'shop/product_list.html' with products=category.products %}
+  </div>
+
+{% endblock content %}

@@ -1,0 +1,29 @@
+@import 'mixins';
+
+.breadcrumbs {
+  @include font-size(14px);
+
+  .breadcrumb-item {
+    display: inline;
+    color: #C0C0C0;
+    
+    &.active {
+      color: #404040;
+    }
+
+    &:after {
+      content: '/';
+      margin: 0 5px;
+    }
+    &:nth-last-of-type(1) {
+      &:after {
+        content: none;
+      }
+    }
+    &:nth-child(1) {
+      &:after {
+        content: '/';
+      }
+    }
+  }
+}
