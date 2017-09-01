@@ -6,12 +6,16 @@ def main(request):
     menu = Menu()
     menu.append(
         MenuItem(
-            title=_('Blog'),
+            title=_('Photos'),
             url='blog:index',
         ),
         MenuItem(
-            title=_('Contacts'),
-            url='contacts:index',
+            title=_('Testimonials'),
+            url='testimonials:index',
+        ),
+        MenuItem(
+            title=_('Blog'),
+            url='blog:index',
         ),
     )
     return menu

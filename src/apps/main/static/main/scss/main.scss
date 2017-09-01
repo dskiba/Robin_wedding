@@ -1,0 +1,85 @@
+@import "mixins";
+
+.container {
+  display: block;
+  width: 100%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  @include media_interval($media1200, 0) {      
+    padding-right: 100px;
+    padding-left: 200px;
+  }
+  @include media_interval($media768, $media1024) {      
+    margin-left: 100px;
+  }
+}
+
+.apply-block {
+  font-size: .875rem;
+  line-height: 1.71429;
+  
+}
+
+.apply-block .flex {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.order__now {
+  flex: 0 1 360px;
+  padding-top: 30px;
+  @include media_interval($media1200, 0) {      
+    margin-left: 100px;
+  }
+  @include media_interval($media1024, $media1200) {      
+    margin-left: 60px;
+  }
+  @include media_interval($media768, $media1024) {      
+    margin-left: 150px;
+  }
+
+  @include media_interval(0, $media768) {
+    margin-left: 30px;
+  }
+
+  h2 {  
+    font-family: RozhaOne;
+    font-size: 46px;
+    line-height: 0.91;
+    color: #232323;
+    padding-bottom: 15px;
+    @include media_interval(0, $media768) {
+      font-size: 32px;
+      line-height: 1.31;
+    }
+
+    
+  }
+  p {
+    font-family: Lato;
+    font-size: 14px;
+    line-height: 1.71;
+    color: #232323;
+    padding-bottom: 15px;
+    @include media_interval(0, $media768) {
+      font-size: 14px;
+      line-height: 1.43;
+    }
+
+    
+  }
+  .btn {
+    width: 230px;
+    height: 60px;
+    border-radius: 100px;
+    background-color: #da2020;
+    border: solid 6px #d9d9d9;
+    @include media_interval(0, $media768) {
+      margin-left: 20px;
+    }
+  }
+}
+
+
+

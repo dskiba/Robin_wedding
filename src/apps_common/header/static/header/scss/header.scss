@@ -6,7 +6,7 @@ $logo_height: 54px;
 #header-cell > header {
   padding: 30px 0;
   background-color: #ffffff;
-  border: 1px solid black;
+  border-bottom: 2px solid #ffb546;
 
   .flex {
     @include flexbox;
@@ -16,8 +16,11 @@ $logo_height: 54px;
 
   .logo-box {
     @include flex(0 0 auto);
-
+    @include media_interval($media1024, 0) {
+      animation: boom 2s ease-in-out alternate;
+    }
     .logo-title {
+      height: 40px;
       background-image: linear-gradient(to left, #ff7c6e, #d4496f);
       font-family: PlayfairDisplay;
       font-size: 30px;
@@ -27,6 +30,7 @@ $logo_height: 54px;
       -webkit-text-fill-color: transparent;
     }
     .logo-subtitle {
+      margin-left: 4px;
       font-family: Alice;
       font-size: 14px;
       letter-spacing: 5px;
@@ -45,48 +49,65 @@ $logo_height: 54px;
       text-align: right;
     }
     .social-links {
+      margin-top: -15px;
+      padding-right: 15px;
       display: inline-block;
-      -webkit-box-flex: 1;
-      -moz-box-flex: 1 1 auto;
-      -webkit-flex: 1 1 auto;
-      -ms-flex: 1 1 auto;
       flex: 1 1 auto;
       vertical-align: middle;
       a {
-        display: inline-block;     
-        margin-left: 15px;
+        display: inline-block;
+        margin-right: 15px;
+        width: 40px;
+        vertical-align: middle;        
+        &:first-child {
+          margin-left: 50px;
+        }
+        &:before {
+          content: '';
+          display: block;
+          padding-top: 100%;
+          background: url(../../img/sprite.svg) no-repeat;
+        }
       }
-
-      .twitter {       
-        background: url(../../img/sprite.svg) no-repeat -10px -7px;
-        width: 21px;
-        height: 27px;
+      .twitter:before {       
+        background-position: 0% 0%;
       }
-      .inst {
-        background: url(../../img/sprite.svg) no-repeat -49px -9px;
-        width: 21px;
-        height: 21px;
+      .inst:before {
+        background-position: 25% 0;        
       }
-      .facebook {
-        background: url(../../img/sprite.svg) no-repeat -94px -11px;
-        width: 11px;
-        height: 19px;
+      .facebook:before {
+        background-position: 50% 0;
       }
-      .linkedin {
-        background: url(../../img/sprite.svg) no-repeat -131px -9px;
-        width: 19px;
-        height: 19px;
+      .linkedin:before {
+        background-position: 75% 0;
       }
-      .googleplus {
-        background: url(../../img/sprite.svg) no-repeat -168px -12px;
-        width: 25px;
-        height: 16px;
+      .googleplus:before {
+        background-position: 100% 0;
       }
-
     }    
   }
 
+  .contacts-tel {
+    margin-top: -10px;
+    a {
+      text-decoration: none;
+      font-family: Alice;
+      font-size: 35px;
+      color: #87605b;
+    }
+  }
+}
 
+@keyframes boom {
+  0% {
+    transform: scale(0.3);
+  }
+  70% {
+    transform: scale(1.25);
+  }
 
+  100% {
+    transform: scale(1.0);
+  }
 }
 

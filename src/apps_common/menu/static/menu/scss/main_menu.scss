@@ -1,7 +1,7 @@
 @import 'mixins';
 
-$menu_text_color: #404040;
-$menu_hover_color: #82BD36;
+$menu_text_color: #ff3605;
+$menu_hover_color: #572019;
 $menu_active_color: #82BD36;
 
 $mobile_background: #5B3C2A;
@@ -21,11 +21,14 @@ $mobile_active_color: $menu_active_color;
   li {
     color: $menu_text_color;
 
+
     a {
       display: inline-block;
-      padding: 5px;
-      @include fontsize_default;
-
+      padding: 5px 20px 5px 0px;
+      span {
+        font-family: 'Alice';
+        font-size: 20px;
+      }      
       &:hover {
         color: $menu_hover_color;
       }
@@ -100,7 +103,7 @@ $mobile_active_color: $menu_active_color;
       font-weight: bold;
       vertical-align: top;
       color: $mobile_text_color;
-      @include font-size(22px, 28px);
+      @include font-size(50px, 28px);
 
       &:hover {
         color: $mobile_hover_color;

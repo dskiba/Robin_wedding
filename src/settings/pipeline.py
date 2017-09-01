@@ -36,8 +36,22 @@ PIPELINE['STYLESHEETS'].update({
     'main': {
         'source_filenames': (
             'main/scss/index.scss',
+            'main/scss/hero.scss',
+            'main/scss/main.scss',
+            'main/scss/gallery.scss',            
+            'main/scss/contact.scss',
+            'main/scss/contact2.scss',
+
         ),
         'output_filename': 'css_build/main.css',
+    },
+    'fonts': {
+        'source_filenames': (
+            'main/fonts/Alice/stylesheet.scss',
+            'main/fonts/Playfair_Display/stylesheet.scss',
+
+        ),
+        'output_filename': 'css_build/fonts.css',
     },
     'contacts': {
         'source_filenames': (
