@@ -52,8 +52,12 @@
     padding-top: 35px;
     margin-bottom: 40px;
     animation: down2 2s ease-in-out;
-  }
-  .btn {
+  }  
+}
+.btn-animation {
+  animation: down3 3s ease-in-out;
+}
+.btn {
     font-family: Alice;
     font-size: 18px;
     line-height: 1.11;
@@ -75,10 +79,12 @@
     border-radius: 100px;
     box-sizing: border-box;
     text-transform: uppercase;
-    animation: down3 3s ease-in-out;
-
+    &:hover {
+      background-color: #ff872e;
+      border-color: #ffb546;
+      box-shadow: 0 0 0 3px #ff872e, 0 10px 50px 0 #ffb546;
+    }
   }
-}
 
 @keyframes moving {
   0% {left: 0;}
