@@ -4,61 +4,119 @@
 $column_footer: $media640;
 
 
+@import 'mixins';
+
+$logo_width: 240px;
+$logo_height: 54px;
+
 #footer-cell > footer {
-  color: $white;
-  background-color: #404040;
-  @include vpad(40px);
+  padding: 30px 0;
+  background-color: #ffffff;
+  border-bottom: 2px solid #ffb546;
 
   .flex {
     @include flexbox;
     @include align-items(center);
-    @include media_interval(0, $column_footer) {
-      @include align-items(stretch);
-      @include flex-direction(column);
-    }
+    @include justify-content(flex-start);
   }
 
-  .copyright-box {
-    @include flex(1 1 auto);
-
-    .copyright {
-      @include fontsize_default;
-      @include media_interval(0, $column_footer) {
-        margin-bottom: 16px;
-        text-align: center;
-      }
-    }
-  }
-
-  .dl-logo-box {
+  .logo-box {
     @include flex(0 0 auto);
+    @include media_interval($media1024, 0) {
+      animation: boom 2s ease-in-out alternate;
+    }
+    .logo-title {
+      height: 40px;
+      background-image: linear-gradient(to left, #ff7c6e, #d4496f);
+      font-family: PlayfairDisplay;
+      font-size: 30px;
+      font-weight: 900;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .logo-subtitle {
+      margin-left: 4px;
+      font-family: Alice;
+      font-size: 14px;
+      letter-spacing: 5px;
+      text-align: center;
+      color: #87605b;
+    }
 
-    .dl-links {
+  }
+
+  .menu-box {
+    padding: 0 20px;
+    text-align: center;
+    @include flex(1 1 auto);
+    @include media_interval(0, $media_mobile) {
+      padding: 0;
       text-align: right;
-      @include media_interval(0, $column_footer) {
-        text-align: center;
-      }
-
-      p {
+    }
+    .social-links {
+      margin-top: -15px;
+      padding-right: 15px;
+      display: inline-block;
+      flex: 1 1 auto;
+      vertical-align: middle;
+      a {
         display: inline-block;
-        margin-bottom: 10px;
-        text-align: left;
-        white-space: nowrap;
-        @include font-size(14px, 22px);
-        @include media_interval(0, $column_footer) {
-          text-align: center;
+        margin-right: 15px;
+        width: 40px;
+        vertical-align: middle;        
+        &:first-child {
+          margin-left: 50px;
         }
-
-        &:last-child {
-          margin-bottom: 0;
+        &:before {
+          content: '';
+          display: block;
+          padding-top: 100%;
+          background: url(../../img/sprite.svg) no-repeat;
         }
       }
-
-      a:hover {
-        @include opacity(0.7);
+      .twitter:before {       
+        background-position: 0% 0%;
       }
+      .inst:before {
+        background-position: 25% 0;        
+      }
+      .facebook:before {
+        background-position: 50% 0;
+      }
+      .linkedin:before {
+        background-position: 75% 0;
+      }
+      .googleplus:before {
+        background-position: 100% 0;
+      }
+    }    
+  }
+
+  .contacts-tel {
+    margin-top: -10px;
+    a {
+      text-decoration: none;
+      font-family: Alice;
+      font-size: 35px;
+      color: #87605b;
     }
   }
 }
+
+@keyframes boom {
+  0% {
+    transform: scale(0.3);
+  }
+  70% {
+    transform: scale(1.25);
+  }
+
+  100% {
+    transform: scale(1.0);
+  }
+}
+
+
 
 

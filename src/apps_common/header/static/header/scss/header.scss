@@ -1,12 +1,15 @@
-@import 'mixins';
+@import "mixins";
 
 $logo_width: 240px;
 $logo_height: 54px;
 
 #header-cell > header {
-  padding: 30px 0;
+  
   background-color: #ffffff;
   border-bottom: 2px solid #ffb546;
+  @include media_interval(0,$media600) {
+       padding: 20px 0;
+      }
 
   .flex {
     @include flexbox;
@@ -28,6 +31,10 @@ $logo_height: 54px;
       -webkit-background-clip: text;
       background-clip: text;
       -webkit-text-fill-color: transparent;
+
+      @include media_interval(0,$media600) {
+        font-size: 22.5px;
+      }
     }
     .logo-subtitle {
       margin-left: 4px;
@@ -36,8 +43,11 @@ $logo_height: 54px;
       letter-spacing: 5px;
       text-align: center;
       color: #87605b;
+      @include media_interval(0,$media600) {
+        font-size: 10.5px;
+        letter-spacing: 3.8px;
+      }
     }
-
   }
 
   .menu-box {
@@ -49,6 +59,9 @@ $logo_height: 54px;
       text-align: right;
     }
     .social-links {
+      @include media_interval(0,$media600) {
+        display: none;
+      }
       margin-top: -15px;
       padding-right: 15px;
       display: inline-block;
@@ -58,22 +71,22 @@ $logo_height: 54px;
         display: inline-block;
         margin-right: 15px;
         width: 40px;
-        vertical-align: middle;        
+        vertical-align: middle;
         &:first-child {
           margin-left: 50px;
         }
         &:before {
-          content: '';
+          content: "";
           display: block;
           padding-top: 100%;
           background: url(../../img/sprite.svg) no-repeat;
         }
       }
-      .twitter:before {       
+      .twitter:before {
         background-position: 0% 0%;
       }
       .inst:before {
-        background-position: 25% 0;        
+        background-position: 25% 0;
       }
       .facebook:before {
         background-position: 50% 0;
@@ -84,11 +97,14 @@ $logo_height: 54px;
       .googleplus:before {
         background-position: 100% 0;
       }
-    }    
+    }
   }
 
   .contacts-tel {
     margin-top: -10px;
+    @include media_interval(0,$media600) {
+      display: none;
+    }
     a {
       text-decoration: none;
       font-family: Alice;
@@ -107,7 +123,6 @@ $logo_height: 54px;
   }
 
   100% {
-    transform: scale(1.0);
+    transform: scale(1);
   }
 }
-

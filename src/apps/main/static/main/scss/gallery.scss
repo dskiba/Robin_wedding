@@ -1,259 +1,143 @@
 @import "mixins";
 
 #photo_gallery {
-  min-height: 673px;
-  background: url("../../img/bot.jpg");
-  padding: 0;
-  color: #ffffff;
-  .container {
-    display: block;
-    margin: 0 auto;
-    padding-left: 30px;
+  background: #fffbf6;
+  outline: 1px solid #ffb546;
+  outline-offset: -40px;
+  overflow: visible;
+  padding-bottom: 120px;
+
+  .gallery__title {
+    padding-top: 100px;
+    padding-bottom: 40px;
+  }
+
+  .slider {
+    max-width: 980px;
+  }
+
+  img {
+    outline: 1px solid #ffb546;
+    outline-offset: -10px;
     width: 100%;
-    max-width: 1400px;
-    box-sizing: border-box;
-    @include media_interval($media1200, 0) {
-      padding-right: 100px;
-    }
+    height: auto;
+    animation: moving4 7s ease-in-out infinite alternate;
   }
-  .flex {
+
+  .gallery__text {
+    margin-top: 20px;
+    padding-bottom: 100px;
+    font-family: Alice;
+    font-size: 16px;
+    line-height: 1.56;
+    text-align: center;
+    color: #87605b;
+  }
+}
+
+
+h2 {
+  background-image: linear-gradient(to left, #ff7c6e, #d4496f);
+  font-family: PlayfairDisplay;
+  font-size: 50px;
+  font-weight: 900;
+  line-height: 1.2;
+  text-align: left;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+
+.slider2 {
+  margin-top: 40px;
+  .slider-item {
+    width: 50%;
+    &:first-child {
+      margin-right: 20px;
+    }
+  }  
+  .slider-slide {
     display: flex;
-    flex-flow: row wrap;
+    justify-content: space-between;
   }
-  h2 {
-    font-family: RozhaOne;
-    font-size: 46px;
-    padding-top: 65px;
-    padding-bottom: 36px;
-    line-height: 0.91;
-    z-index: 60;
-    @include media_interval(0, $media768) {
-      padding-top: 30px;
-      padding-bottom: 30;
-      font-size: 32px;
-      line-height: 1.31;
-    }
-  }
-  .gallery__block {
-    flex: 0 1 660px;
-    @include media_interval($media480, $media768) {
-      padding-left: 25%;
-    }
-    @include media_interval($media768, $media1024) {
-      padding-left: 10%;
-    }
-    @include media_interval($media1024, $media1200) {
-      -webkit-box-flex: 1;
-      -moz-box-flex: 1 0 .1px;
-      -webkit-flex: 1 0 .1px;
-      -ms-flex: 1 0 .1px;
-      flex: 1 0 .1px;
-      padding-left: 10%;
-      max-width: 450px;
-    }
-    .gallery {
-      width: 580px;
-      height: 434.7px;
-      box-shadow: -1px 2px 12px 0 rgba(0, 0, 0, 0.5);
-      @include media_interval(0, $media768) {
-        width: 260px;
-        height: 194.9px;
-      }
+}
 
-      @include media_interval($media768, $media1024) {
-        width: 600px;
-        height: auto;
-      }
-      @include media_interval($media1024, $media1200) {
-        width: 384px;
-        height: auto;
-      }
+.testimonial {
+  padding: 20px;
+  background: #fff;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  box-shadow: 0 35px 60px -30px #f9e4ca, 0 50px 65px -80px #f9e7d1;
+  margin: 0 auto;  
 
-      .slider-navigation {
-        bottom: -50px;
-        @include media_interval(0, $media768) {
-          bottom: -30px;
-          padding: 5px 5px 0 0;
-          margin-bottom: 20px;
-        }
-      }
+  &__content {
+    border: 1px solid #ffb546;
+    padding: 40px 40px 40px 80px;
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 200px;
+    &:before {
+      content: '';
+      background-image: url(/static/img/sprite.svg);
+      width: 26px;
+      height: 19px;
+      background-position: -2px -120px;
+      position: absolute;
+      top: 12px;
+      left: 26px;
     }
-    .slider-arrow {
-      @include media_interval(0, $media768) {
-        display: none !important;
-      }
-      &.slider-arrow-left {
-        left: -80px;
-        &:hover {
-          background-color: rgba(255, 255, 255, 0.05);
-        }
-      }
-      &.slider-arrow-right {
-        right: -80px;
-        &:hover {
-          background-color: rgba(255, 255, 255, 0.05);
-        }
-      }
-    }
-  }
 
-  .text__block {
-    flex: 0 1 360px;
-    padding-top: 65px;
-    @include media_interval(0, $media768) {
-      flex: 1 0 100%;
-      display: inline-block;
-      padding-top: 20px;
-    }
-    @include media_interval($media480, $media768) {
-      padding-left: 25%;
-    }
-    @include media_interval($media768, $media1024) {
-      flex: 1 0 100%;
-      padding-left: 200px;
-    }
-    @include media_interval($media1024, $media1200) {
-    }
-    @include media_interval($media1200, 0) {
-      flex: 0 1 360px;
-    }
-    h3 {
-      font-family: RozhaOne;
-      font-size: 34px;
-      padding-bottom: 38px;
-      line-height: 1.24;
-      @include media_interval(0, $media768) {
-        display: inline-block;
-        padding-bottom: 10px;
-        font-size: 28px;
-      }
-    }
-    li {
-      font-family: Lato;
+    .qoute {
+      font-family: Alice;
       font-size: 16px;
-      line-height: 0.88;
-      padding-left: 1em;
-      color: white;
+      line-height: 1.56;
+      text-align: left;
       position: relative;
-      margin-bottom: 1em;
-      z-index: 1;
-      @include media_interval(0, $media768) {
-        font-size: 14px;
-        line-height: 1.43;
-      }
-      &:last-child {
-        padding-bottom: 50px;
-        @include media_interval(0, $media768) {
-          padding-bottom: 20px;
-        }
-      }
-      &:before {
-        content: '●';
+      vertical-align: middle;
+      &:after {
+        content: '';
+        background-image: url(/static/img/sprite.svg);
+        width: 26px;
+        height: 19px;
+        background-position: -42px -120px;
         position: absolute;
-        top: 0;
-        left: 0;
-        color: #da2020;
+        bottom: -20px;
+        right: -12px;
+      }
+    }
+    
+    .author {
+      display: flex;
+      align-items: center;
+      margin-top: 30px;
+      font-family: 'PlayfairDisplay',serif;
+      font-weight: 900;
+      font-size: 20px;
+      font-size: 1.25rem;
+      line-height: 1.5;
+      text-align: left;
+      background-image: linear-gradient(to left,#ff7c6e,#d4496f);
+      -webkit-background-clip: text;
+      color: transparent;
+      &:before {
+        content: '';
+        background: url(/static/img/sprite.svg) no-repeat -41px -86px;
+        width: 28px;
+        height: 28px;
+        margin-right: 10px;
+        border-radius: 50px
       }
     }
   }
 }
 
-// SLIDER  //
 
-// .slider-root {
-//   position: relative;
-//   z-index: 1;
-//   @include no_fontsize;
 
-//   &.unselectable .slider-item {
-//     @include unselectable;
-//   }
-// }
 
-// .slider-list-wrapper {
-//   position: relative;
-//   height: inherit;
-//   min-height: inherit;
-//   z-index: 1;
-// }
 
-// .slider-list {
-//   position: relative;
-//   height: inherit;
-//   min-height: inherit;
-//   z-index: 1;
-//   @include border-box;
-//   @include valign_after;
-//   @include backface-visibility(hidden);
-// }
-
-// .slider-slide {
-//   position: absolute;
-//   min-height: inherit;
-//   width: 100%;
-//   left: 0;
-//   top: 0;
-//   z-index: 5;
-//   text-align: center;
-//   @include border-box;
-//   @include backface-visibility(hidden);
-//   @include transform(translateX(-10000px));
-// }
-
-// .slider-item {
-//   position: relative;
-//   z-index: 1;
-// }
-
-// .no-slider {
-//   @include border-box;
-
-//   // Скрытие всех слайдов, кроме первого
-//   .slider-slide:first-child {
-//     position: relative;
-//   }
-
-//   .slider-slide ~ .slider-slide {
-//     display: none;
-//   }
-// }
-
-// ////////
-
-// .section-slider {
-//   position: absolute;
-//   top: 0;
-//   left: 0;
-//   width: 100%;
-//   height: inherit;
-//   min-height: inherit;
-//   z-index: 30;
-
-//   .no-slider {
-//     height: inherit;
-//     min-height: inherit;
-
-//     .slider-item ~ .slider-item {
-//       display: none;
-//     }
-//   }
-
-//   .slider-root {
-//     height: inherit;
-//     min-height: inherit;
-//   }
-
-//   .slider-slide {
-//     height: inherit;
-//     min-height: inherit;
-//   }
-
-//   .slider-item {
-//     height: inherit;
-//     min-height: inherit;
-//   }
-
-//   .slider-item > img {
-//     @include centrizeImage($zIndex: auto);
-//   }
-// }

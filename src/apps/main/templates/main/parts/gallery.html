@@ -1,41 +1,73 @@
 {% load staticfiles %}
 
-<div id="photo_gallery" class="block">
-  <div class="container">
-    <div class="flex">
-      <div class="gallery__block">
-        <h2>Photo Gallery</h2>
-        <div class="gallery ">          
-          <div class="slider2 no-slider">
-            <div class="slider-item"><img src="{% static 'img/0016.jpeg' %}" alt=""></div>
-            <div class="slider-item"><img src="{% static 'img/0016.jpeg' %}" alt=""></div>
-            <div class="slider-item"><img src="{% static 'img/0016.jpeg' %}" alt=""></div>
-            <div class="slider-item"><img src="{% static 'img/0016.jpeg' %}" alt=""></div>
-            <div class="slider-item"><img src="{% static 'img/0016.jpeg' %}" alt=""></div>
-          </div>
-        </div>           
-      </div> 
-      <div class="text__block">
-        <h3>Amenities:</h3>
-        <ul>
-          <li>Newly renovated apartments</li>
-          <li>All new energy efficient appliances</li>
-          <li>Cable ready</li>
-          <li>Individual parking space</li>
-        </ul>
-        <h3>Details:</h3>
-        <ul>
-          <li>Allowed two adults and one child</li>
-          <li>No pets allowed</li>
-          <li>We rent first or fifteenth of the month</li>
-          <li>Full security deposit is required upfront to reserve apartment</li>
-          <li>Security deposit is a month and a half rent</li>
-        </ul>
+<div id="photo_gallery" class="section">
+  <div class="gallery__block grid">
+    <div class="gallery__title gc-wide-3 gc-ml-wide-2 gc-ml-1"><h2 >Photos</h2></div>
+    <div class="grid">
+      <div class="gallery">          
+        <div class="slider gc-wide-10 gc-center gc-10 gc-tablet-7">
+          <div class="slider-item"><img src="{% static 'img/JPG/download-5_re.jpg' %}" alt=""></div>
+          <div class="slider-item"><img src="{% static 'img/JPG/download-5_re.jpg' %}" alt=""></div>
+          <div class="slider-item"><img src="{% static 'img/JPG/download-5_re.jpg' %}" alt=""></div>
+          <div class="slider-item"><img src="{% static 'img/JPG/download-5_re.jpg' %}" alt=""></div>
+          <div class="slider-item"><img src="{% static 'img/JPG/download-5_re.jpg' %}" alt=""></div>
         </div>
+      </div>
     </div>
-  </div> 
-</div>    
+    <div class="gallery__text">The caption to the picture (optional). May be in two lines.</div> 
+  </div>
+
+  <div class="gallery__testimonials">
+    <div class="grid">
+      <div class="testimonials-title gc-wide-10 gc-ml-wide-2 gc-ml-1">
+        <h2>Testimonials</h2>
+      </div> 
+    </div>
+  </div>
+  <div class="grid cards">
+    <div class="gc-wide-10 gc-center gc-10 gc-tablet-7 slider2">
+
+      <div class="slider-item">
+        <div class="testimonial">
+          <div class="testimonial__content">
+            <div class="qoute">Our wedding is still talked about by family and friends as being the best wedding they’ve ever attended. Celebrant Robin is a big reason why. Hire her!</div>
+            <div class="author">Kate & Jo</div>            
+          </div>
+        </div>
+      </div>
+
+      <div class="slider-item">
+        <div class="testimonial">
+          <div class="testimonial__content">
+            <div class="qoute">Robin is fantastic! You will NOT be disappointed! I LOVED my ceremony.</div>
+            <div class="author">Felicia & Drew</div>            
+          </div>
+        </div>
+      </div>
+
+      <div class="slider-item">
+        <div class="testimonial">
+          <div class="testimonial__content">
+            <div class="qoute">Robin is fantastic! You will NOT be disappointed! I LOVED my ceremony.</div>
+            <div class="author">Felicia & Drew</div>            
+          </div>
+        </div>
+      </div>
+
+      <div class="slider-item">
+        <div class="testimonial">
+          <div class="testimonial__content">
+            <div class="qoute">Our wedding is still talked about by family and friends as being the best wedding they’ve ever attended. Celebrant Robin is a big reason why. Hire her!</div>
+            <div class="author">Kate & Jos</div>            
+          </div>
+        </div>
+      </div>
 
 
 
+    </div>
+  </div>
+
+
+</div> 
 

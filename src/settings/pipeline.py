@@ -1,4 +1,4 @@
-from ._pipeline import PIPELINE
+from ._pipeline import PIPELINE, Slider
 
 
 PIPELINE['STYLESHEETS'].update({
@@ -14,7 +14,7 @@ PIPELINE['STYLESHEETS'].update({
         'output_filename': 'css_build/critical.css',
     },
     'core': {
-        'source_filenames': (
+        'source_filenames': Slider.css + (
             'scss/forms.scss',
             'scss/preloader.scss',
             'scss/text_styles.scss',
@@ -88,7 +88,7 @@ PIPELINE['JAVASCRIPT'].update({
         'output_filename': 'js_build/core.js',
     },
     'main': {
-        'source_filenames': (
+        'source_filenames': Slider.js + (
             'main/js/index.js',
         ),
         'output_filename': 'js_build/main.js',

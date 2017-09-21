@@ -1,6 +1,8 @@
 @import "mixins";
 
-
+img {
+  box-shadow: 0 27px 65px -25px #87827f, 0 30px 95px -80px #87827f;
+}
 @innclude media_interval($media1024, 0) {
   .main {
     padding: 100px 0;
@@ -12,6 +14,11 @@
   outline: 1px solid #ffb546;
   outline-offset: -40px;
   padding-top: 120px;
+  @include media_interval(0,$media600) {
+    outline: none;
+    padding-top: 50px;
+  }
+
   &__title {
     background-image: linear-gradient(to left, #ff7c6e, #d4496f);
     font-family: PlayfairDisplay, serif;
@@ -22,12 +29,21 @@
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
+    @include media_interval(0,$media600) {
+      outline: none;
+      font-size: 33px;
+      font-weight: 900;
+      line-height: 1.21;
+    }
     &:after {
       content: " ";
       display: table-cell;
       width: 180px;
       padding-bottom: 38px;
-      border-bottom: solid 1px #ffb546;      
+      border-bottom: solid 1px #ffb546;
+      @include media_interval(0,$media600) {
+        padding-bottom: 20px;
+      }
     }
   }
   h2 {
@@ -45,7 +61,7 @@
       display: table-cell;
       width: 180px;
       padding-bottom: 38px;
-      border-bottom: solid 1px #ffb546;      
+      border-bottom: solid 1px #ffb546;
     }
   }
   &__text {
@@ -56,14 +72,25 @@
     line-height: 1.56;
     text-align: left;
     color: #87605b;
+    @include media_interval(0,$media600) {
+      padding-top: 20px;
+      font-size: 16px;
+      line-height: 1.56;
+      margin-bottom: 60px;
+    }
+  }
+
+  &__img {
+    box-shadow: none;
+    @include media_interval(0,$media600) {
+      display: none;
+    }
   }
   img {
     max-width: 380px;
     position: relative;
   }
 }
-
-
 
 .columns {
   display: flex;
@@ -80,6 +107,3 @@
   justify-content: flex-end;
   max-width: 380px;
 }
-
-
-

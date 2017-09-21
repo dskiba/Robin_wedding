@@ -13,11 +13,13 @@
     display: none;
   }
   .btn {
-    margin-top: 40px;
+    margin-top:  40px;
+    margin-left: 10%;
   }
   img {
+    box-shadow: none;
     width: 100%;
-    height: 100%;
+    height: 110%;
     z-index: -2;
     position: absolute;
     left: 0;
